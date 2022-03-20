@@ -15,6 +15,7 @@ public class Module {
         key = k;
         category = c;
         toggled = false;
+        setup();
     }
 
     public Minecraft getMc() {
@@ -34,6 +35,7 @@ public class Module {
     public void onDisable() {}
     public void onUpdate() {}
     public void onRender() {}
+    public void setup() {}
 
     public void setMc(Minecraft mc) {
         this.mc = mc;
@@ -70,4 +72,5 @@ public class Module {
     public void setCategory(Category category) {
         this.category = category;
     }
+
 }

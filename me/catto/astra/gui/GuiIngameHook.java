@@ -17,13 +17,14 @@ public class GuiIngameHook extends GuiIngame {
     public void renderGameOverlay(float p_175180_1_) {
         super.renderGameOverlay(p_175180_1_);
 
+        if(!mc.gameSettings.showDebugInfo) {
 
-        drawRect(2, 2, 100, 14, 0x80000000);
-        Wrapper.fr.drawString("Astra", 4, 4, 0xD517D5);
-        Wrapper.fr.drawString("FPS " + mc.getDebugFPS(), 50, 4, -1);
+            drawRect(2, 2, 100, 14, 0x80000000);
+            Wrapper.fr.drawString("Astra", 4, 4, 0xD517D5);
+            Wrapper.fr.drawString("FPS " + mc.getDebugFPS(), 50, 4, -1);
+            renderArrayList();
+        }
 
-
-        renderArrayList();
     }
 
     private void renderArrayList(){

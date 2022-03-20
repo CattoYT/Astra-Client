@@ -200,7 +200,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     private final File fileResourcepacks;
     private final PropertyMap twitchDetails;
     private final PropertyMap field_181038_N;
-    private ServerData currentServerData;
+    public ServerData currentServerData;
 
     /** The RenderEngine instance used by Minecraft */
     private TextureManager renderEngine;
@@ -219,7 +219,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     public int displayWidth;
     public int displayHeight;
     private boolean field_181541_X = false;
-    private Timer timer = new Timer(20.0F);
+    public Timer timer = new Timer(20.0F);
 
     /** Instance of PlayerUsageSnooper. */
     private PlayerUsageSnooper usageSnooper = new PlayerUsageSnooper("client", this, MinecraftServer.getCurrentTimeMillis());
@@ -286,7 +286,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     /**
      * When you place a block, it's set to 6, decremented once per tick, when it's 0, you can place another block.
      */
-    private int rightClickDelayTimer;
+    public int rightClickDelayTimer;
     private String serverName;
     private int serverPort;
 
@@ -1504,7 +1504,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         }
     }
 
-    private void clickMouse()
+    public void clickMouse()
     {
         if (this.leftClickCounter <= 0)
         {
@@ -1551,8 +1551,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
 
     /**
      * Called when user clicked he's mouse right button (place)
-     */
-    private void rightClickMouse()
+     */ public void rightClickMouse()
     {
         if (!this.playerController.func_181040_m())
         {
@@ -2325,6 +2324,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         networkmanager.sendPacket(new C00Handshake(47, socketaddress.toString(), 0, EnumConnectionState.LOGIN));
         networkmanager.sendPacket(new C00PacketLoginStart(this.getSession().getProfile()));
         this.myNetworkManager = networkmanager;
+        //astra
+        Astra.getDiscordRP().update("Playing SinglePlayer", "In Game");
     }
 
     /**
