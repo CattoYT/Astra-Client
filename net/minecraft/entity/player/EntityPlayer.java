@@ -165,7 +165,7 @@ public abstract class EntityPlayer extends EntityLivingBase
     private int lastXPSound;
 
     /** The player's unique game profile */
-    private final GameProfile gameProfile;
+    public GameProfile gameProfile;
     private boolean hasReducedDebug = false;
 
     /**

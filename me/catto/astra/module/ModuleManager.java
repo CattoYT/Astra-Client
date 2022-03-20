@@ -2,6 +2,7 @@ package me.catto.astra.module;
 
 import me.catto.astra.module.combat.*;
 import me.catto.astra.module.movement.*;
+import me.catto.astra.module.render.ClickGui;
 
 import java.util.ArrayList;
 
@@ -21,10 +22,14 @@ public class ModuleManager {
         newMod(new Fly());
         newMod(new NoFall());
         newMod(new Parkour());
+        newMod(new Sneak());
+        newMod(new Speed());
+        newMod(new Spider());
+        newMod(new Step());
         //PLAYER
 
         //RENDER
-
+        newMod(new ClickGui());
         //MISC
     }
 
