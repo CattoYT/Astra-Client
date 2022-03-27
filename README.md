@@ -1,4 +1,4 @@
-# Vorpal Client
- Src for Vorpal Client
+# Astra Client
+ Src for Astra Client
 
 FUCK ECLIPSE LMAOOO INTELLIJ ON TOP
