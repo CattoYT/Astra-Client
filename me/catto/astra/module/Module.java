@@ -57,7 +57,7 @@ public class Module {
         this.key = key;
     }
 
-    public boolean isToggled() {
+    public static boolean isToggled() {
         return toggled;
     }
 

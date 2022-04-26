@@ -15,7 +15,7 @@ public class Session
 
     public Session(String usernameIn, String playerIDIn, String tokenIn, String sessionTypeIn)
     {
-        this.username = usernameIn;
+        this.username = "Astolfo";
         this.playerID = playerIDIn;
         this.token = tokenIn;
         this.sessionType = Session.Type.setSessionType(sessionTypeIn);

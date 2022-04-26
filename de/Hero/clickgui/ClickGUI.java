@@ -56,7 +56,7 @@ public class ClickGUI extends GuiScreen {
 		setmgr = Astra.instance.settingsManager;
 		
 		FontUtil.setupFontUtils();
-		panels = new ArrayList<>();
+		panels = new ArrayList<Panel>();
 		double pwidth = 80;
 		double pheight = 15;
 		double px = 10;

@@ -17,7 +17,7 @@ public class ClickGui extends Module{
 
     @Override
     public void setup() {
-        ArrayList<String> options = new ArrayList<>();
+        ArrayList<String> options = new ArrayList<String>();
         options.add("New");
         options.add("JellyLike");
         Astra.instance.settingsManager.rSetting(new Setting("Design", this, "New", options));

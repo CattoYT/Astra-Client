@@ -248,6 +248,16 @@ public class GuiShaders extends GuiScreen
                         Shaders.configShadowClipFrustrum = !Shaders.configShadowClipFrustrum;
                         button.displayString = "ShadowClipFrustrum: " + toStringOnOff(Shaders.configShadowClipFrustrum);
                         ShadersTex.updateTextureMinMagFilter();
+				case SHADER_PACK:
+					break;
+				case TEX_MAG_FIL_B:
+					break;
+				case TEX_MIN_FIL_N:
+					break;
+				case TEX_MIN_FIL_S:
+					break;
+				default:
+					break;
                 }
 
                 guibuttonenumshaderoption.updateButtonText();

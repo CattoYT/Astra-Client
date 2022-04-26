@@ -1,11 +1,13 @@
 package net.minecraft.client.renderer.entity.layers;
 
+import me.catto.astra.module.render.Capes;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EnumPlayerModelParts;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 
 public class LayerCape implements LayerRenderer
 {
@@ -21,8 +23,11 @@ public class LayerCape implements LayerRenderer
     {
         if (entitylivingbaseIn.hasPlayerInfo() && !entitylivingbaseIn.isInvisible() && entitylivingbaseIn.isWearing(EnumPlayerModelParts.CAPE) && entitylivingbaseIn.getLocationCape() != null)
         {
-            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+            if (Capes.isToggled()) {
             this.playerRenderer.bindTexture(entitylivingbaseIn.getLocationCape());
+        }
+            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+            this.playerRenderer.bindTexture(new ResourceLocation("astra/Images/capes/AstolfoCape.png"));
             GlStateManager.pushMatrix();
             GlStateManager.translate(0.0F, 0.0F, 0.125F);
             double d0 = entitylivingbaseIn.prevChasingPosX + (entitylivingbaseIn.chasingPosX - entitylivingbaseIn.prevChasingPosX) * (double)partialTicks - (entitylivingbaseIn.prevPosX + (entitylivingbaseIn.posX - entitylivingbaseIn.prevPosX) * (double)partialTicks);
