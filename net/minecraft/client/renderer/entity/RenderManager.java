@@ -117,9 +117,9 @@ public class RenderManager
 
     /** Renders fonts */
     private FontRenderer textRenderer;
-    public double renderPosX;
-    public double renderPosY;
-    public double renderPosZ;
+    private double renderPosX;
+    private double renderPosY;
+    private double renderPosZ;
     public TextureManager renderEngine;
 
     /** Reference to the World object. */

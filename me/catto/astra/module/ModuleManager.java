@@ -2,9 +2,7 @@ package me.catto.astra.module;
 
 import me.catto.astra.module.combat.*;
 import me.catto.astra.module.movement.*;
-import me.catto.astra.module.render.*;
-import me.catto.astra.module.misc.*;
-
+import me.catto.astra.module.render.ClickGui;
 
 import java.util.ArrayList;
 
@@ -31,15 +29,8 @@ public class ModuleManager {
         //PLAYER
 
         //RENDER
-        newMod(new ChestESP());
-        newMod(new PlayerESP());
-        newMod(new MobESP());
-        newMod(new Capes());
-
         newMod(new ClickGui());
         //MISC
-        newMod(new Disabler());
-        //EXPLOIT
     }
 
     public static void newMod(Module m) {

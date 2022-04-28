@@ -12,6 +12,7 @@ import java.util.Iterator;
 
 
 public class Aura extends Module {
+
     public Aura() {
         super("Aura", Keyboard.KEY_R, Category.COMBAT);
     }

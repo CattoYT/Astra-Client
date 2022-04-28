@@ -1,8 +1,6 @@
 package net.minecraft.client.gui;
 
 import java.io.IOException;
-
-import me.catto.astra.gui.menus.MainMenu;
 import net.minecraft.client.gui.achievement.GuiAchievements;
 import net.minecraft.client.gui.achievement.GuiStats;
 import net.minecraft.client.multiplayer.WorldClient;
@@ -60,16 +58,16 @@ public class GuiIngameMenu extends GuiScreen
 
                 if (flag)
                 {
-                    this.mc.displayGuiScreen(new MainMenu());
+                    this.mc.displayGuiScreen(new GuiMainMenu());
                 }
                 else if (flag1)
                 {
                     RealmsBridge realmsbridge = new RealmsBridge();
-                    realmsbridge.switchToRealms(new MainMenu());
+                    realmsbridge.switchToRealms(new GuiMainMenu());
                 }
                 else
                 {
-                    this.mc.displayGuiScreen(new GuiMultiplayer(new MainMenu()));
+                    this.mc.displayGuiScreen(new GuiMultiplayer(new GuiMainMenu()));
                 }
 
             case 2:

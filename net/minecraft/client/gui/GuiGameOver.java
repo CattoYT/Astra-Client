@@ -1,8 +1,6 @@
 package net.minecraft.client.gui;
 
 import java.io.IOException;
-
-import me.catto.astra.gui.menus.MainMenu;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
@@ -75,12 +73,12 @@ public class GuiGameOver extends GuiScreen implements GuiYesNoCallback
             case 1:
                 if (this.mc.theWorld.getWorldInfo().isHardcoreModeEnabled())
                 {
-                    this.mc.displayGuiScreen(new MainMenu());
+                    this.mc.displayGuiScreen(new GuiMainMenu());
                 }
                 else
                 {
                     GuiYesNo guiyesno = new GuiYesNo(this, I18n.format("deathScreen.quit.confirm", new Object[0]), "", I18n.format("deathScreen.titleScreen", new Object[0]), I18n.format("deathScreen.respawn", new Object[0]), 0);
-                    this.mc.displayGuiScreen(new MainMenu());
+                    this.mc.displayGuiScreen(guiyesno);
                     guiyesno.setButtonDelay(20);
                 }
         }
@@ -92,7 +90,7 @@ public class GuiGameOver extends GuiScreen implements GuiYesNoCallback
         {
             this.mc.theWorld.sendQuittingDisconnectingPacket();
             this.mc.loadWorld((WorldClient)null);
-            this.mc.displayGuiScreen(new MainMenu());
+            this.mc.displayGuiScreen(new GuiMainMenu());
         }
         else
         {

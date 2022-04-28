@@ -15,7 +15,7 @@ public class Spider extends Module {
             if(IFuckedYourCodeProbably.isCollidedHorizontally()) {
                 IFuckedYourCodeProbably.setMotionY(0.2);
 
-                float var6 = 0.15F;
+                float var6 = 0.15f;
 
                 if(IFuckedYourCodeProbably.getMotionX() < (double)-var6) {
                     IFuckedYourCodeProbably.setMotionX((double)-var6);
@@ -40,6 +40,6 @@ public class Spider extends Module {
                 }
             }
         }
+        super.onUpdate();
     }
-
 }

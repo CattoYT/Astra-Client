@@ -12,7 +12,6 @@ import java.util.Random;
 import java.util.concurrent.Callable;
 
 import me.catto.astra.Astra;
-import me.catto.astra.gui.menus.MainMenu;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.block.material.Material;
@@ -20,10 +19,13 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.GuiDownloadTerrain;
+import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.gui.MapItemRenderer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.particle.EffectRenderer;
+import net.minecraft.client.renderer.EntityRenderer1;
+import net.minecraft.client.renderer.EntityRenderer2;
 import net.minecraft.client.renderer.culling.ClippingHelperImpl;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.texture.DynamicTexture;
@@ -2711,9 +2713,9 @@ public class EntityRenderer implements IResourceManagerReloadListener
             }
         }
 
-        if (this.mc.currentScreen instanceof MainMenu)
+        if (this.mc.currentScreen instanceof GuiMainMenu)
         {
-            this.updateMainMenu((MainMenu)this.mc.currentScreen);
+            this.updateMainMenu((GuiMainMenu)this.mc.currentScreen);
         }
 
         if (this.updatedWorld != world)
@@ -2752,7 +2754,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
         }
     }
 
-    private void updateMainMenu(MainMenu p_updateMainMenu_1_)
+    private void updateMainMenu(GuiMainMenu p_updateMainMenu_1_)
     {
         try
         {
@@ -2777,7 +2779,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
                 return;
             }
 
-            Field[] afield = MainMenu.class.getDeclaredFields();
+            Field[] afield = GuiMainMenu.class.getDeclaredFields();
 
             for (int k = 0; k < afield.length; ++k)
             {

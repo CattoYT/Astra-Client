@@ -72,7 +72,7 @@ public abstract class GuiScreen extends Gui implements GuiYesNoCallback
 
     /** The button that was just pressed. */
     private GuiButton selectedButton;
-    protected int eventButton;
+    private int eventButton;
     private long lastMouseEvent;
 
     /**
