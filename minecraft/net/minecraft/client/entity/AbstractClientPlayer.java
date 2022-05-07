@@ -22,7 +22,6 @@ import optifine.Config;
 import optifine.PlayerConfigurations;
 import optifine.Reflector;
 
-import static net.minecraft.client.renderer.entity.layers.LayerCape.selectedCape;
 
 
 public abstract class AbstractClientPlayer extends EntityPlayer
