@@ -1,6 +1,7 @@
 package me.catto.astra.module;
 
 import me.catto.astra.module.combat.*;
+import me.catto.astra.module.exploit.Disabler;
 import me.catto.astra.module.movement.*;
 import me.catto.astra.module.render.*;
 import me.catto.astra.module.misc.*;

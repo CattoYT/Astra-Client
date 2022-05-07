@@ -26,19 +26,21 @@ public class Capes extends Module {
         ArrayList<String> options = new ArrayList<String>();
         options.add("Astra");
         options.add("Astolfo");
-        Astra.instance.settingsManager.rSetting(new Setting("Cape", this, "Astolfo", options));
+        Astra.settingsManager.rSetting(new Setting("Cape", this, "Astolfo", options));
     }
 
     public void onUpdate() {
-        if(this.isToggled() != true) {
+        if(!this.isToggled()) {
             toggle();
+        }
         if(this.isToggled()) {
-            chosenCape = Astra.instance.settingsManager.getSettingByName("Cape").getValString();
+            chosenCape = Astra.settingsManager.getSettingByName("Cape").getValString();
             capeIsToggled = true;
 
         }
-
     }
+
+
     public void onDisable() {
         capeIsToggled = false;
     }
