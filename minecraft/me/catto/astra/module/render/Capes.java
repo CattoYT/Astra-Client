@@ -4,22 +4,22 @@ import me.catto.astra.Astra;
 import me.catto.astra.module.Category;
 import me.catto.astra.module.Module;
 
-import de.Hero.clickgui.elements.Element;
-import de.Hero.clickgui.elements.ModuleButton;
-import de.Hero.clickgui.elements.menu.ElementSlider;
-import de.Hero.clickgui.util.ColorUtil;
-import de.Hero.clickgui.util.FontUtil;
-import de.Hero.settings.SettingsManager;
 import de.Hero.settings.Setting;
-import java.util.ArrayList;
-import org.lwjgl.input.Keyboard;
+import net.minecraft.client.renderer.entity.layers.LayerCape;
+import net.minecraft.util.ResourceLocation;
 
+import java.util.ArrayList;
 
 
 public class Capes extends Module {
+
+    public static String chosenCape;
+    public static boolean capeIsToggled;
+
     public Capes() {
         super("Capes", 0, Category.RENDER);
     }
+
 
     @Override
     public void setup() {
@@ -27,13 +27,19 @@ public class Capes extends Module {
         options.add("Astra");
         options.add("Astolfo");
         Astra.instance.settingsManager.rSetting(new Setting("Cape", this, "Astolfo", options));
+    }
 
+    public void onUpdate() {
+        if(this.isToggled()) {
+            chosenCape = Astra.instance.settingsManager.getSettingByName("Cape").getValString();
+            capeIsToggled = true;
 
-
-    
-//TODO fix the capes
         }
 
+    }
+    public void onDisable() {
+        capeIsToggled = false;
+    }
 
 
 }

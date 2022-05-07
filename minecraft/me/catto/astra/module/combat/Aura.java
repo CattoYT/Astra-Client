@@ -2,6 +2,7 @@ package me.catto.astra.module.combat;
 
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.network.play.client.C02PacketUseEntity;
 import org.lwjgl.input.Keyboard;
 
 import me.catto.astra.module.Category;
@@ -19,6 +20,7 @@ public class Aura extends Module {
     @Override
     public void onUpdate() {
         if(!this.isToggled())
+
             return;
 
         for(Iterator<Entity> entities = mc.theWorld.loadedEntityList.iterator(); entities.hasNext();) {

@@ -32,6 +32,8 @@ import java.net.SocketAddress;
 import java.util.Queue;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import javax.crypto.SecretKey;
+
+import me.catto.astra.events.riseevents.packet.PacketReceiveEvent;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.CryptManager;
@@ -161,6 +163,15 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
         }
     }
 
+    public void receivePacketWithoutEvent(Packet packet) {
+        if (this.channel.isOpen()) {
+            try {
+                packet.processPacket(this.packetListener);
+            } catch (ThreadQuickExitException var4) {
+                ;
+            }
+        }
+    }
     /**
      * Sets the NetHandler for this NetworkManager, no checks are made if this handler is suitable for the particular
      * connection state (protocol)
@@ -520,6 +531,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
             }
         }
     }
+
 
     static class InboundHandlerTuplePacketListener
     {

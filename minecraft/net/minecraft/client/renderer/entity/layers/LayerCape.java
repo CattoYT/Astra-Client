@@ -1,6 +1,7 @@
 package net.minecraft.client.renderer.entity.layers;
 
 import me.catto.astra.Astra;
+import me.catto.astra.module.render.Capes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -10,18 +11,12 @@ import net.minecraft.entity.player.EnumPlayerModelParts;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 
+
 public class LayerCape implements LayerRenderer
 {
-    //Astra
-    public static String selectedCape;
 
-    public static String getSelectedCape(){
-        selectedCape = Astra.instance.settingsManager.getSettingByName("Cape").getValString();
-        return selectedCape;
 
-    }
-
-    private final RenderPlayer playerRenderer;
+    public final RenderPlayer playerRenderer;
     private static final String __OBFID = "CL_00002425";
 
     public LayerCape(RenderPlayer playerRendererIn)
@@ -31,12 +26,22 @@ public class LayerCape implements LayerRenderer
 
     public void doRenderLayer(AbstractClientPlayer entitylivingbaseIn, float p_177141_2_, float p_177141_3_, float partialTicks, float p_177141_5_, float p_177141_6_, float p_177141_7_, float scale)
     {
-        if (entitylivingbaseIn.hasPlayerInfo() && !entitylivingbaseIn.isInvisible() && entitylivingbaseIn.isWearing(EnumPlayerModelParts.CAPE))
+        if (entitylivingbaseIn.hasPlayerInfo() && !entitylivingbaseIn.isInvisible() && entitylivingbaseIn.isWearing(EnumPlayerModelParts.CAPE) && entitylivingbaseIn.getName().equals(Minecraft.getMinecraft().getSession().getUsername()))
         {
-            if (entitylivingbaseIn.getName().equals(Minecraft.getMinecraft().getSession().getUsername())) {
-
                 GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-                this.playerRenderer.bindTexture(new ResourceLocation("astra/Images/capes/Astolfo/cape/Astolfo.png"));
+                //Astra
+                if(Capes.capeIsToggled == true) {
+                    if(Capes.chosenCape.equals("Astolfo")) {
+                        this.playerRenderer.bindTexture(new ResourceLocation("astra/capes/" + Capes.chosenCape + ".png"));
+                    } else {
+                        this.playerRenderer.bindTexture(new ResourceLocation("astra/capes/Astolfo.png"));
+                    }
+                }
+                if(Capes.capeIsToggled != true) {
+                    this.playerRenderer.bindTexture(entitylivingbaseIn.getLocationCape());
+                }
+
+
                 GlStateManager.pushMatrix();
                 GlStateManager.translate(0.0F, 0.0F, 0.125F);
                 double d0 = entitylivingbaseIn.prevChasingPosX + (entitylivingbaseIn.chasingPosX - entitylivingbaseIn.prevChasingPosX) * (double) partialTicks - (entitylivingbaseIn.prevPosX + (entitylivingbaseIn.posX - entitylivingbaseIn.prevPosX) * (double) partialTicks);
@@ -72,7 +77,7 @@ public class LayerCape implements LayerRenderer
                 this.playerRenderer.getMainModel().renderCape(0.0625F);
                 GlStateManager.popMatrix();
 
-            }
+
         }
     }
 

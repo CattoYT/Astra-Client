@@ -2,6 +2,8 @@ package net.minecraft.block;
 
 import java.util.List;
 import java.util.Random;
+
+import me.catto.astra.module.render.Xray;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -465,6 +467,36 @@ public class Block
 
     public boolean shouldSideBeRendered(IBlockAccess worldIn, BlockPos pos, EnumFacing side)
     {
+        //Astra
+        if(this == Block.getBlockById(14))//Gold ore
+            return true;
+        if(this == Block.getBlockById(15))//Iron ore
+            return true;
+        if(this == Block.getBlockById(16))//Coal ore
+            return true;
+        if(this == Block.getBlockById(56))//Diamond ore
+            return true;
+        if(this == Block.getBlockById(73))//Redstone ore
+            return true;
+        if(this == Block.getBlockById(129))//Lapis ore
+            return true;
+        if(this == Block.getBlockById(133))//Emerald ore
+            return true;
+        if(this == Block.getBlockById(153))//Nether quartz ore
+            return true;
+        if(this == Block.getBlockById(10))//flowing lava
+            return true;
+        if(this == Block.getBlockById(11))//still lava
+            return true;
+        if(this == Block.getBlockById(20))//flowing water
+            return true;
+        if(this == Block.getBlockById(21))//still water
+            return true;
+            if(Xray.enabled)
+                return false;
+
+
+
         return side == EnumFacing.DOWN && this.minY > 0.0D ? true : (side == EnumFacing.UP && this.maxY < 1.0D ? true : (side == EnumFacing.NORTH && this.minZ > 0.0D ? true : (side == EnumFacing.SOUTH && this.maxZ < 1.0D ? true : (side == EnumFacing.WEST && this.minX > 0.0D ? true : (side == EnumFacing.EAST && this.maxX < 1.0D ? true : !worldIn.getBlockState(pos).getBlock().isOpaqueCube())))));
     }
 

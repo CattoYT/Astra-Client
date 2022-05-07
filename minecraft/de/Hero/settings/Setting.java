@@ -12,7 +12,7 @@ import me.catto.astra.module.Module;
  *
  *  @author HeroCode
  */
-public class Setting {
+public class  Setting {
 	
 	private String name;
 	private Module parent;

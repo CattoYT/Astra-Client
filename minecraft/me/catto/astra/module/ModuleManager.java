@@ -4,6 +4,7 @@ import me.catto.astra.module.combat.*;
 import me.catto.astra.module.movement.*;
 import me.catto.astra.module.render.*;
 import me.catto.astra.module.misc.*;
+import me.catto.astra.module.player.*;
 
 
 import java.util.ArrayList;
@@ -28,17 +29,18 @@ public class ModuleManager {
         newMod(new Speed());
         newMod(new Spider());
         newMod(new Step());
+        newMod(new BunnyHop());
         //PLAYER
-
+        newMod(new FastPlace());
         //RENDER
-        newMod(new ChestESP());
-        newMod(new PlayerESP());
-        newMod(new MobESP());
+        newMod(new ESP());
         newMod(new Capes());
+        newMod(new Xray());
 
         newMod(new ClickGui());
         //MISC
         newMod(new Disabler());
+        newMod(new AutoRespawn());
         //EXPLOIT
     }
 

@@ -116,6 +116,7 @@ public class ModelPlayer extends ModelBiped
         this.bipedCape.render(p_178728_1_);
     }
 
+
     /**
      * Sets the model's various rotation angles. For bipeds, par1 and par2 are used for animating the movement of arms
      * and legs, where par1 represents the time(so that arms and legs swing back and forth) and par2 represents how
