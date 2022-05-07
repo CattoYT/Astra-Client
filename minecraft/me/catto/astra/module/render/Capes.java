@@ -30,6 +30,8 @@ public class Capes extends Module {
     }
 
     public void onUpdate() {
+        if(this.isToggled() != true) {
+            toggle();
         if(this.isToggled()) {
             chosenCape = Astra.instance.settingsManager.getSettingByName("Cape").getValString();
             capeIsToggled = true;
