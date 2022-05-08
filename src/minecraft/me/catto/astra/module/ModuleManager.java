@@ -73,4 +73,8 @@ public class ModuleManager {
         }
     }
 
+    public Module getModule(final Class<?> clazz) {
+        return this.mods.stream().filter(mod -> mod.getClass() == clazz).findFirst().orElse(null);
+    }
+
 }

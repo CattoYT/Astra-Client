@@ -33,6 +33,8 @@ import java.util.Queue;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import javax.crypto.SecretKey;
 
+import me.catto.astra.Astra;
+import me.catto.astra.events.events.impl.SilentPacketEvent;
 import me.catto.astra.events.riseevents.packet.PacketReceiveEvent;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
@@ -170,6 +172,34 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
             } catch (ThreadQuickExitException var4) {
                 ;
             }
+        }
+    }
+    public void sendPacketNoEvent(final Packet packetIn) {
+        final SilentPacketEvent event = new SilentPacketEvent(packetIn, EnumPacketDirection.CLIENTBOUND);
+        Astra.eventManager.call(event);
+        if (event.cancelled) {
+            return;
+        }
+        if (this.isChannelOpen()) {
+            this.flushOutboundQueue();
+            this.dispatchPacket(packetIn, null);
+        }
+        else {
+            this.field_181680_j.writeLock().lock();
+            try {
+                this.outboundPacketsQueue.add(new InboundHandlerTuplePacketListener(packetIn, (GenericFutureListener<? extends Future<? super Void>>[])null));
+            }
+            finally {
+                this.field_181680_j.writeLock().unlock();
+            }
+        }
+    }
+    public void receiveNoEvent(final Packet p_channelRead0_2_) {
+        if (this.channel.isOpen()) {
+            try {
+                p_channelRead0_2_.processPacket(this.packetListener);
+            }
+            catch (ThreadQuickExitException ex) {}
         }
     }
     /**
