@@ -36,7 +36,7 @@ public class Speed extends Module {
                     MoveUtil.strafe();
                 }
 
-            else if(Astra.settingsManager.getSettingByName("Speed").getValString() == "Skate")
+            if(Astra.settingsManager.getSettingByName("Speed").getValString() == "Skate")
                 if(mc.thePlayer.onGround) {
                     mc.thePlayer.motionX *= 2.0f;
                     mc.thePlayer.motionZ *= 2.0f;

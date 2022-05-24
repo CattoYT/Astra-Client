@@ -246,6 +246,11 @@ public abstract class World implements IBlockAccess
      * Checks to see if an air block exists at the provided location. Note that this only checks to see if the blocks
      * material is set to air, meaning it is possible for non-vanilla blocks to still pass this check.
      */
+    //Astra
+    public Block getBlock(BlockPos pos) {
+        return this.getBlockState(pos).getBlock();
+    }
+
     public boolean isAirBlock(BlockPos pos)
     {
         return this.getBlockState(pos).getBlock().getMaterial() == Material.air;
