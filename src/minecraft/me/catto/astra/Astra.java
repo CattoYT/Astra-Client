@@ -17,7 +17,7 @@ public class Astra {
 
     public static Astra instance = new Astra();
 
-    public static String name = "Astra", version = "| Build B6", creator = "Catto";
+    public static String name = "Astra", version = "| Build B7", creator = "Catto";
 
     public static SettingsManager settingsManager;
     public static ModuleManager moduleManager;

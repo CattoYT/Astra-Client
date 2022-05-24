@@ -125,6 +125,8 @@ public abstract class EntityPlayer extends EntityLivingBase
     /** holds the spawn chunk of the player */
     private BlockPos spawnChunk;
 
+    public static Float movementYaw;
+
     /**
      * Whether this player's spawn point is forced, preventing execution of bed checks.
      */

@@ -19,6 +19,7 @@ public class ModuleManager {
         //COMBAT
         newMod(new FastBow());
         newMod(new Aura());
+        //newMod(new Criticals());
         //MOVEMENT
         newMod(new Sprint());
         newMod(new AutoWalk());
@@ -31,6 +32,8 @@ public class ModuleManager {
         newMod(new Spider());
         newMod(new Step());
         newMod(new BunnyHop());
+        newMod(new NoSlow());
+
         //PLAYER
         newMod(new FastPlace());
         //RENDER

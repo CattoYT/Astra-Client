@@ -52,8 +52,12 @@ public class Aura extends Module {
 
                 if (mc.thePlayer.getDistanceToEntity(entity) <= 6.2173613F) {
                     if (entity.isEntityAlive()) {
-                        PacketUtil.send(new C02PacketUseEntity(entity, C02PacketUseEntity.Action.ATTACK));
-                        mc.playerController.attackEntity(mc.thePlayer, entity);
+                        if(Astra.settingsManager.getSettingByName("KeepSprint").getValBoolean() == true) {
+                            PacketUtil.send(new C02PacketUseEntity(entity, C02PacketUseEntity.Action.ATTACK));
+                        }else{
+                            mc.playerController.attackEntity(mc.thePlayer, entity);
+                        }
+
                         mc.thePlayer.swingItem();
 
                         continue;
