@@ -26,22 +26,23 @@ public class Speed extends Module {
         ArrayList<String> options = new ArrayList<String>();
         options.add("LowHop");
         options.add("Skate");
-        Astra.settingsManager.rSetting(new Setting("Speed", this, "LowHop", options));
+            Astra.settingsManager.rSetting(new Setting("Speed", this, "Skate", options));
     }
     public void onUpdate() {
         if(this.isToggled()) {
-            if(Astra.settingsManager.getSettingByName("Speed").getValString() == "LowHop") {
+            /*if(Astra.settingsManager.getSettingByName("Speed").getValString() == "LowHop") {
                 if (mc.thePlayer.onGround && isMoving()) {
                     mc.thePlayer.jump();
                     MoveUtil.strafe();
                 }
 
-            if(Astra.settingsManager.getSettingByName("Speed").getValString() == "Skate")
-                if(mc.thePlayer.onGround) {
+
+            }else{*/
+                if (mc.thePlayer.onGround) {
                     mc.thePlayer.motionX *= 2.0f;
                     mc.thePlayer.motionZ *= 2.0f;
                 }
-            }
+            //}
         }
     }
 }

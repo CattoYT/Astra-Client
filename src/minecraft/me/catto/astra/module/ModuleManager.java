@@ -36,6 +36,7 @@ public class ModuleManager {
 
         //PLAYER
         newMod(new FastPlace());
+        newMod(new Scaffold());
         //RENDER
         newMod(new ESP());
         newMod(new Capes());
