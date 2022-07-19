@@ -4,6 +4,7 @@ import com.google.common.eventbus.EventBus;
 import de.Hero.clickgui.ClickGUI;
 import de.Hero.settings.SettingsManager;
 import me.catto.astra.altmanager.AltManager;
+import me.catto.astra.clickgui.Clickgui;
 import me.catto.astra.events.events.EventManager;
 import me.catto.astra.extensions.DiscordRP;
 import me.catto.astra.module.ModuleManager;
@@ -25,6 +26,7 @@ public class Astra {
     public static AltManager altManager;
     public static Capes capes;
     public static EventManager eventManager;
+    public static Clickgui shitGUI;
 
     public static boolean useExperimentalEventBus;
     public static EventBus eventBus;
@@ -35,6 +37,7 @@ public class Astra {
         settingsManager = new SettingsManager();
         moduleManager = new ModuleManager();
         clickGUI = new ClickGUI();
+        shitGUI = new Clickgui();
         altManager = new AltManager();
         discordRP.start();
         capes = new Capes();

@@ -19,12 +19,5 @@ public class NoSlow extends Module {
     }
 
 
-    @Subscribe
-    public void onMotion(final UpdatePlayerEvent event) {
-        if (this.mc.thePlayer.isBlocking()) {
-            this.mc.playerController.syncCurrentPlayItem();
-            PacketUtil.send(new C07PacketPlayerDigging(C07PacketPlayerDigging.Action.RELEASE_USE_ITEM, BlockPos.ORIGIN, EnumFacing.DOWN));
-        }
-    }
 
 }

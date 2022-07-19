@@ -10,4 +10,18 @@ public class ColorUtils {
         Color c = new Color((int) color);
         return new Color(c.getRed()/255.0F*fade, c.getGreen()/255.0F*fade, c.getBlue()/255.0F*fade , c.getAlpha()/255.0F);
     }
+
+    public static int getAstolfoColor(int timeOffset, int yTotal) {
+        final float speed = 2900F;
+        float hue = (float) (System.currentTimeMillis() % (int) speed) + ((yTotal - timeOffset) * 9);
+        while (hue > speed) {
+            hue -= speed;
+        }
+        hue /= speed;
+        if (hue > 0.5) {
+            hue = 0.5F - (hue - 0.5f);
+        }
+        hue += 0.5F;
+        return Color.HSBtoRGB(hue, .65F, 1F);
+    }
 }

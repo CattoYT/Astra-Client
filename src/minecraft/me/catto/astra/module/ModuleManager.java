@@ -41,6 +41,7 @@ public class ModuleManager {
         newMod(new ESP());
         newMod(new Capes());
         newMod(new Xray());
+        newMod(new NewClickGUI());
 
         newMod(new ClickGui());
         //MISC

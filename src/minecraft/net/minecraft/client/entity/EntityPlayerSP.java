@@ -1,6 +1,7 @@
 package net.minecraft.client.entity;
 
 import me.catto.astra.Astra;
+import me.catto.astra.events.events.impl.SlowdownEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MovingSoundMinecartRiding;
 import net.minecraft.client.audio.PositionedSoundRecord;
