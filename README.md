@@ -4,6 +4,6 @@
 FUCK ECLIPSE LMAOOO INTELLIJ ON TOP
 
 
-Il compile a release at b6
+Il compile a release whenever
 
 "Would I get adopted" - Catto
